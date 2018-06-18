@@ -38,8 +38,6 @@ defmodule Scurvy.MixProject do
   defp deps do
     [
       {:nerves, "~> 1.0", runtime: false},
-      {:nerves_init_gadget, "~> 0.3"},
-      {:nerves_firmware_ssh, "~> 0.2"},
       {:shoehorn, "~> 0.2"}
     ] ++ deps(@target)
   end
@@ -49,7 +47,8 @@ defmodule Scurvy.MixProject do
 
   defp deps(target) do
     [
-      {:nerves_runtime, "~> 0.4"}
+      {:nerves_runtime, "~> 0.4"},
+      {:nerves_init_gadget, "~> 0.3"}
     ] ++ system(target)
   end
 

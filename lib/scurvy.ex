@@ -13,6 +13,6 @@ defmodule Scurvy do
 
   """
   def hello do
-    :world
+    "not world"
   end
 end

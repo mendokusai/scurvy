@@ -25,8 +25,8 @@ config :logger, backends: [RingLogger]
 
 config :scurvy, interface: :wlan0, port: 4001
 
-config :scurvy,
-  node_name: :scurvy,
+config :nerves_init_gadget,
+  node_name: :scurvy01,
   mdns_domain: "nerves.local",
   address_method: :dhcp,
   ifname: "wlan0"
