@@ -8,8 +8,8 @@ defmodule Scurvy.Application do
   use Application
 
   def start(_type, _args) do
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
+    Picam.Camera.start_link
+
     opts = [strategy: :one_for_one, name: Scurvy.Supervisor]
     Supervisor.start_link(children(@target), opts)
   end
@@ -24,8 +24,7 @@ defmodule Scurvy.Application do
 
   def children(_target) do
     [
-      # Starts a worker by calling: Scurvy.Worker.start_link(arg)
-      # {Scurvy.Worker, arg},
+      Plug.Adapters.Cowboy.child_spec(scheme: :http, plug: Scurvy.Router, options: [port: 4001])
     ]
   end
 end

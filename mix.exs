@@ -37,7 +37,7 @@ defmodule Scurvy.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nerves, "~> 1.0", runtime: false},
+      {:nerves, "~> 1.0", runtime: false, override: true},
       {:shoehorn, "~> 0.2"}
     ] ++ deps(@target)
   end
@@ -48,7 +48,10 @@ defmodule Scurvy.MixProject do
   defp deps(target) do
     [
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_init_gadget, "~> 0.3"}
+      {:nerves_init_gadget, "~> 0.3"},
+      {:picam, "~> 0.2.0"},
+      {:cowboy, "~> 1.0.0"},
+      {:plug, "~> 1.0"}
     ] ++ system(target)
   end
 
